@@ -1,0 +1,184 @@
+Jan 17
+Added a logical representation for the chess board
+Finished the legal move search for the rook
+
+
+Jan24
+fixed some issues with the board and rook
+
+
+Jan30
+found the way to access the board without extending it by including it as a parameter (idk how I didn't figure it out)
+Finished movement of the rook
+wrote the implentation of bishop
+
+Jan 31
+Tested and fixed the implentation of Bishop
+
+Feb 3
+added knight implentation
+tested knight
+optimized rook implementation
+added queen implementation
+added partial pawn implentation
+
+
+Feb 6
+added move history
+added enpassent
+added promotion
+finished pawn implementation
+
+Feb 7
+tested and fixed pawn movement and promotion
+added a partial implenetation of move history into the makeMove() method in piece
+
+TODO
+change mySide to a char instead of String
+test pawn implementation, move order, and king implentation and checkmates
+Also move history and enpassent are not tested
+
+btw the king and queen postions are swapped
+
+
+Remember to make board update threatmap everymove
+also make it so that pieces are lost after capture (make a hashmap with the first digit representing 
+
+
+
+package MikeChess;
+import MikeChess.Pieces.*;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Board board = new Board();
+
+        //white
+        Pawn Wpawn1 = new Pawn(0, 1, "w", board);
+        Pawn Wpawn2 = new Pawn(1, 1, "w", board);
+        Pawn Wpawn3 = new Pawn(2, 1, "w", board);
+        Pawn Wpawn4 = new Pawn(3, 1, "w", board);
+        Pawn Wpawn5 = new Pawn(4, 1, "w", board);
+        Pawn Wpawn6 = new Pawn(5, 1, "w", board);
+        Pawn Wpawn7 = new Pawn(6, 1, "w", board);
+        Pawn Wpawn8 = new Pawn(7, 1, "w", board);
+
+        Bishop Wbishop1 = new Bishop(2, 0, "w", board);
+        Bishop Wbishop2 = new Bishop(5, 0, "w", board);
+
+        Knight Wknight1 = new Knight(1, 0, "w", board);
+        Knight Wknight2 = new Knight(6, 0, "w", board);
+
+        Rook Wrook1 = new Rook(0,0, "w", board);
+        Rook Wrook2 = new Rook(0,7, "w", board);
+
+        Queen Wqueen1 = new Queen(3, 0, "w", board);
+        King Wking1 = new King(4, 0, "w", board);
+
+
+        //black
+        Pawn Bpawn1 = new Pawn(0, 6, "b", board);
+        Pawn Bpawn2 = new Pawn(1, 6, "b", board);
+        Pawn Bpawn3 = new Pawn(2, 6, "b", board);
+        Pawn Bpawn4 = new Pawn(3, 6, "b", board);
+        Pawn Bpawn5 = new Pawn(4, 6, "b", board);
+        Pawn Bpawn6 = new Pawn(5, 6, "b", board);
+        Pawn Bpawn7 = new Pawn(6, 6, "b", board);
+        Pawn Bpawn8 = new Pawn(7, 6, "b", board);
+
+        Bishop Bbishop1 = new Bishop(2, 7, "b", board);
+        Bishop Bbishop2 = new Bishop(5, 7, "b", board);
+
+        Knight Bknight1 = new Knight(1, 7, "b", board);
+        Knight Bknight2 = new Knight(6, 7, "b", board);
+
+        Rook Brook1 = new Rook(7,0, "b", board);
+        Rook Brook2 = new Rook(7,7, "b", board);
+
+        Queen Bqueen1 = new Queen(3, 7, "b", board);
+        King Bking1 = new King(4, 7, "b", board);
+
+        board.updateThreatMap();
+
+//
+//        board.print_board_fromWhite();
+//        System.out.println();
+//        int row;
+//        int col;
+//        Piece myPiece;
+//        while(true){
+//            while (true){
+//                System.out.println("Select a piece (col row) ");
+//                try{
+//                    col = input.nextInt()-1;
+//                    row = input.nextInt()-1;
+//                    myPiece= board.getPiece(row, col);
+//
+//                    myPiece.show_moves(board);
+//                    if(board.whooseMove()){
+//                        board.print_board_fromWhite();
+//
+//
+//
+//                    }
+//                    else{
+//                        board.print_board_fromBlack();
+//                    }
+//                    break;
+//                }
+//                catch (Exception E){
+//                }
+//
+//            }
+//
+//            while(true){
+//
+//                try{
+//                    System.out.println("Make a move (col, row)");
+//                    row = input.nextInt()-1;
+//                    col = input.nextInt()-1;
+//                    if(myPiece.getType().equals("p")){
+//                        if(!myPiece.makeMove(col, row, board, input)){
+//                            continue;
+//                        }
+//
+//                    }
+//                    else{
+//                        if(!myPiece.makeMove(col, row, board)){
+//                            continue;
+//                        }
+//                    }
+//
+//                    if(board.whooseMove()){
+//                        board.print_board_fromWhite();
+//                    }
+//                    else{
+//                        board.print_board_fromBlack();
+//                    }
+//                    break;
+//
+//                }
+//                catch (Exception e){
+//
+//                }
+//
+//            }
+//
+//
+//
+//
+//        }
+//
+
+
+
+
+
+
+
+
+    }
+}
