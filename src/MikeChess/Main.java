@@ -9,6 +9,8 @@ public class Main {
         Board board = new Board();
 
         //white
+
+
         Pawn Wpawn1 = new Pawn(0, 1, "w", board);
         Pawn Wpawn2 = new Pawn(1, 1, "w", board);
         Pawn Wpawn3 = new Pawn(2, 1, "w", board);

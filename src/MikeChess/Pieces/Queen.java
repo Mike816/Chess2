@@ -1,8 +1,9 @@
 package MikeChess.Pieces;
 
 import MikeChess.Board;
+import MikeChess.Main;
 
-public class Queen extends Piece{
+public class Queen extends Piece {
 
     public Queen(int x, int y, String mySide, Board myBoard){
         super(x, y, "q", mySide, myBoard);

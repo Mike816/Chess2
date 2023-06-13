@@ -1,8 +1,9 @@
 package MikeChess.Pieces;
 
 import MikeChess.Board;
+import MikeChess.Main;
 
-public class Rook extends Piece{
+public class Rook extends Piece {
 
     private boolean hasMoved;
     public Rook(int y, int x, String mySide, Board myBoard){
